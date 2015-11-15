@@ -49,7 +49,7 @@ def gcj02tobd09(lng, lat):
     theta = math.atan2(lat, lng) + 0.000003 * math.cos(lng * x_pi)
     bd_lng = z * math.cos(theta) + 0.0065
     bd_lat = z * math.sin(theta) + 0.006
-    return [bd_lng, bd_lat]
+    return (bd_lng, bd_lat)
 
 
 def bd09togcj02(bd_lon, bd_lat):
@@ -66,7 +66,7 @@ def bd09togcj02(bd_lon, bd_lat):
     theta = math.atan2(y, x) - 0.000003 * math.cos(x * x_pi)
     gg_lng = z * math.cos(theta)
     gg_lat = z * math.sin(theta)
-    return [gg_lng, gg_lat]
+    return (gg_lng, gg_lat)
 
 
 def wgs84togcj02(lng, lat):
@@ -86,7 +86,7 @@ def wgs84togcj02(lng, lat):
     dlng = (dlng * 180.0) / (a / sqrtmagic * math.cos(radlat) * pi)
     mglat = lat + dlat
     mglng = lng + dlng
-    return [mglng, mglat]
+    return (mglng, mglat)
 
 
 def gcj02towgs84(lng, lat):
@@ -106,7 +106,7 @@ def gcj02towgs84(lng, lat):
     dlng = (dlng * 180.0) / (a / sqrtmagic * math.cos(radlat) * pi)
     mglat = lat + dlat
     mglng = lng + dlng
-    return [lng * 2 - mglng, lat * 2 - mglat]
+    return (lng * 2 - mglng, lat * 2 - mglat)
 
 
 def transformlat(lng, lat):
